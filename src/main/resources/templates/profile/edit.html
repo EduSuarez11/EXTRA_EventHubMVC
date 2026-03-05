@@ -24,7 +24,7 @@
             Ha ocurrido un error.
           </div>
 
-          <form method="post" novalidate>
+          <form th:action="@{/profile/edit}" th:object="${form}" method="post" novalidate>
 
             <!-- Full name -->
             <div class="mb-3">
@@ -32,8 +32,12 @@
               <input id="fullName"
                      type="text"
                      class="form-control"
+                     th:field="*{fullname}"
                      placeholder="Tu nombre completo">
-              <div class="text-danger small">
+              <div class="text-danger small"
+                   th:if="${#fields.hasErrors('fullname')}"
+                   th:errors="*{fullname}"
+                >
                 Error fullName
               </div>
             </div>
@@ -44,8 +48,12 @@
               <input id="email"
                      type="email"
                      class="form-control"
+                     th:field="*{email}"
                      placeholder="nombre@dominio.com">
-              <div class="text-danger small">
+              <div class="text-danger small"
+                   th:if="${#fields.hasErrors('email')}"
+                   th:errors="*{email}"
+              >
                 Error email
               </div>
             </div>
@@ -60,11 +68,15 @@
               <input id="password"
                      type="password"
                      class="form-control"
+                     th:field="*{password}"
                      placeholder="Deja en blanco para no cambiarla">
               <div class="form-text">
                 Si rellenas este campo, deberás confirmar la contraseña.
               </div>
-              <div class="text-danger small">
+              <div class="text-danger small"
+                   th:if="${#fields.hasErrors('password')}"
+                   th:errors="*{password}"
+              >
                 Error password
               </div>
             </div>
@@ -75,8 +87,12 @@
               <input id="confirmPassword"
                      type="password"
                      class="form-control"
+                     th:field="*{confirmPassword}"
                      placeholder="Repite la nueva contraseña">
-              <div class="text-danger small">
+              <div class="text-danger small"
+                   th:if="${#fields.hasErrors('confirmPassword')}"
+                   th:errors="*{confirmPassword}"
+              >
                 Error confirmPassword
               </div>
             </div>

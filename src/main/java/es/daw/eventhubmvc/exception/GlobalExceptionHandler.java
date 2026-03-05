@@ -14,20 +14,5 @@ public class GlobalExceptionHandler {
     }
 
 
-    /*
-        @ExceptionHandler(WebClientRequestException.class)
-    public String handleWebClientRequestException(WebClientRequestException e, Model model) {
-        String mapping = e.getUri().getPath();
 
-        String detalle = e.getMostSpecificCause().getMessage();
-
-        String mensajeCompleto = String.format(
-                "No se pudo conectar con %s del API DATA REST. Detalle: %s",
-                mapping, detalle
-        );
-
-        model.addAttribute("errorMessage", mensajeCompleto);
-        return "api-error";
-    }
-        */
 }
