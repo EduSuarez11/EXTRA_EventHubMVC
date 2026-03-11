@@ -33,11 +33,8 @@ public class EventsController {
         if (locationCode == null || locationCode.isBlank()) {
             response = catalogClientService.listEvents(page, size, sort, dir);
         } else {
-            // BUG PARA EXAMEN
              //Cuando filtro por ubicación, ignoro los parámetros de paginación y ordenación
             response = catalogClientService.findEventsByLocationCode(locationCode, page, size, sort, dir);
-            //response = catalogClientService.findEventsByLocationCode(locationCode, page, size);
-
         }
 
         List<EventDTO> events = response.content();
